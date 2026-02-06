@@ -1,0 +1,2393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITIETERNALTOURS - Experience Rome Like an Emperor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-dark: #1a1a1a;
+            --color-gold: #D4AF37;
+            --color-gold-dark: #C5A028;
+            --color-brick: #8B322C;
+            --color-brick-light: #A63D33;
+            --color-brick-dark: #2D1B14;
+            --color-brick-pompeian: #A13333;
+            --color-brick-pompeian-dark: #811316;
+            --color-marble: #F9F7F2;
+            --color-gray-light: #f5f5f5;
+            --color-gray: #999;
+            --color-white: #fff;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-dark);
+            background-color: var(--color-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Utilidades */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-padding {
+            padding: 120px 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-end {
+            justify-content: flex-end;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .items-start {
+            align-items: flex-start;
+        }
+        
+        .w-full {
+            width: 100%;
+        }
+        
+        .h-screen {
+            height: 100vh;
+        }
+        
+        .min-h-screen {
+            min-height: 100vh;
+        }
+        
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .z-0 {
+            z-index: 0;
+        }
+        
+        .z-10 {
+            z-index: 10;
+        }
+        
+        .z-50 {
+            z-index: 50;
+        }
+        
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        .overflow-x-hidden {
+            overflow-x: hidden;
+        }
+        
+        .bg-dark {
+            background-color: var(--color-dark);
+        }
+        
+        .bg-marble {
+            background-color: var(--color-marble);
+        }
+        
+        .text-white {
+            color: var(--color-white);
+        }
+        
+        .text-gold {
+            color: var(--color-gold);
+        }
+        
+        .text-brick {
+            color: var(--color-brick);
+        }
+        
+        .text-brick-pompeian {
+            color: var(--color-brick-pompeian);
+        }
+        
+        .font-serif {
+            font-family: var(--font-serif);
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .font-light {
+            font-weight: 300;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+        
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+        
+        .text-5xl {
+            font-size: 3rem;
+        }
+        
+        .text-6xl {
+            font-size: 3.75rem;
+        }
+        
+        .text-8xl {
+            font-size: 6rem;
+        }
+        
+        .tracking-tighter {
+            letter-spacing: -0.05em;
+        }
+        
+        .tracking-widest {
+            letter-spacing: 0.1em;
+        }
+        
+        .uppercase {
+            text-transform: uppercase;
+        }
+        
+        .leading-tight {
+            line-height: 1.2;
+        }
+        
+        .leading-relaxed {
+            line-height: 1.6;
+        }
+        
+        .border-b {
+            border-bottom: 1px solid;
+        }
+        
+        .border-t {
+            border-top: 1px solid;
+        }
+        
+        .rounded-sm {
+            border-radius: 4px;
+        }
+        
+        .rounded-full {
+            border-radius: 9999px;
+        }
+        
+        .shadow-sm {
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .shadow-md {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .shadow-lg {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .shadow-xl {
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .transition {
+            transition: var(--transition);
+        }
+        
+        .hover\:text-gold:hover {
+            color: var(--color-gold);
+        }
+        
+        .hover\:bg-brick-light:hover {
+            background-color: var(--color-brick-light);
+        }
+        
+        .hover\:bg-brick:hover {
+            background-color: var(--color-brick);
+        }
+        
+        .hover\:bg-brick-pompeian:hover {
+            background-color: var(--color-brick-pompeian);
+        }
+        
+        .hover\:text-white:hover {
+            color: var(--color-white);
+        }
+        
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Header/Nav */
+        header {
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(26, 26, 26, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        nav {
+            padding: 16px 0;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 32px;
+                font-size: 0.75rem;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+            }
+        }
+        
+        .nav-link {
+            transition: var(--transition);
+        }
+        
+        .btn-book {
+            background-color: var(--color-brick);
+            color: var(--color-white);
+            padding: 8px 24px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .btn-book:hover {
+            background-color: var(--color-brick-light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.1s ease-out;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(45, 27, 20, 0.4), rgba(45, 27, 20, 0.9));
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            text-align: right;
+            margin-left: auto;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.5;
+        }
+        
+        .scroll-line {
+            width: 1px;
+            height: 48px;
+            background-color: var(--color-white);
+        }
+        
+        /* Secciones generales */
+        section {
+            padding: 96px 0;
+        }
+        
+        .section-title {
+            font-size: 0.875rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 16px;
+        }
+        
+        /* Sección Tours */
+        .tours {
+            background-color: var(--color-marble);
+            color: var(--color-dark);
+        }
+        
+        .collage-container {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .collage {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .collage-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top right, rgba(139, 50, 44, 0.05), transparent);
+        }
+        
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 32px;
+        }
+        
+        @media (min-width: 768px) {
+            .places-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+        
+        .place-item {
+            font-size: 0.625rem;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            opacity: 0.7;
+        }
+        
+        .tours-content h2 {
+            margin: 32px 0;
+            line-height: 1.2;
+        }
+        
+        .tours-content p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .feature-item {
+            display: flex;
+            margin-bottom: 32px;
+        }
+        
+        .feature-icon {
+            margin-right: 20px;
+            margin-top: 4px;
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.25);
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        
+        .quote-card {
+            background-color: var(--color-white);
+            border-left: 4px solid var(--color-gold);
+            padding: 32px;
+            margin-bottom: 40px;
+            font-style: italic;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .quote-author {
+            display: block;
+            margin-top: 12px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        .btn-primary {
+            background-color: var(--color-brick);
+            color: var(--color-white);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-brick-light);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-brick);
+            border: 1px solid rgba(139, 50, 44, 0.3);
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+            flex: 1;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--color-brick);
+            color: var(--color-white);
+        }
+        
+        /* Sección Secrets */
+        .secrets {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .secrets-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .secrets-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, var(--color-brick-dark), rgba(139, 50, 44, 0.8), rgba(45, 27, 20, 0.6));
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-top: 64px;
+        }
+        
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .card {
+            cursor: pointer;
+        }
+        
+        .card-image {
+            position: relative;
+            height: 320px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: var(--shadow-xl);
+            margin-bottom: 24px;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        
+        .card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(45, 27, 20, 0.8), transparent, transparent);
+        }
+        
+        .card-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: var(--font-serif);
+            margin-bottom: 12px;
+            color: var(--color-white);
+        }
+        
+        .card-description {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        
+        .card:hover .card-description {
+            color: var(--color-white);
+        }
+        
+        .btn-link {
+            color: var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+            padding-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            transition: var(--transition);
+        }
+        
+        .btn-link:hover {
+            color: var(--color-white);
+            border-color: var(--color-white);
+        }
+        
+        /* Sección Trust */
+        .trust {
+            background-color: var(--color-marble);
+            color: var(--color-dark);
+        }
+        
+        .factor-item {
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 20px;
+            border-left: 4px solid #e5e7eb;
+            margin-bottom: 16px;
+        }
+        
+        .factor-item.active {
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-brick-pompeian);
+            transform: translateX(8px);
+        }
+        
+        .factor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .factor-number {
+            font-family: monospace;
+            font-weight: 700;
+            margin-right: 16px;
+        }
+        
+        .factor-title {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+        
+        .factor-content {
+            overflow: hidden;
+            transition: all 0.5s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .factor-item.active .factor-content {
+            max-height: 160px;
+            opacity: 1;
+            margin-top: 16px;
+        }
+        
+        .testimonial-container {
+            background-color: var(--color-brick-pompeian);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        @media (min-width: 768px) {
+            .testimonial-container {
+                padding: 64px;
+            }
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            color: rgba(255, 255, 255, 0.05);
+            font-size: 15rem;
+            font-family: var(--font-serif);
+            user-select: none;
+        }
+        
+        .testimonial-stars {
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+        }
+        
+        .testimonial-text {
+            font-size: 1.5rem;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--color-white);
+            margin-bottom: 40px;
+            line-height: 1.4;
+            letter-spacing: 0.025em;
+        }
+        
+        @media (min-width: 768px) {
+            .testimonial-text {
+                font-size: 1.875rem;
+            }
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 2px solid var(--color-gold);
+            object-fit: cover;
+        }
+        
+        .testimonial-author-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: var(--font-serif);
+            color: var(--color-white);
+        }
+        
+        .testimonial-tour {
+            font-size: 0.75rem;
+            color: var(--color-gold);
+            letter-spacing: 0.2em;
+            font-weight: 500;
+        }
+        
+        .testimonial-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-progress-bar {
+            height: 100%;
+            background-color: var(--color-gold);
+            transition: width 0.7s ease;
+        }
+        
+        .testimonial-next {
+            position: absolute;
+            bottom: 24px;
+            right: 40px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.625rem;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Sección Pricing */
+        .pricing {
+            background-color: var(--color-marble);
+            color: var(--color-dark);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            align-items: stretch;
+        }
+        
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .pricing-card {
+            background-color: var(--color-white);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--color-brick-pompeian);
+            box-shadow: var(--shadow-xl);
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .pricing-card.recommended {
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .pricing-card.recommended::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/s1.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        
+        .pricing-card.recommended::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(161, 51, 51, 0.95), rgba(129, 19, 22, 0.9), rgba(45, 27, 20, 1));
+            z-index: 0;
+        }
+        
+        .pricing-card-content {
+            padding: 32px;
+            flex-grow: 1;
+            position: relative;
+            z-index: 10;
+        }
+        
+        @media (min-width: 768px) {
+            .pricing-card-content {
+                padding: 40px;
+            }
+        }
+        
+        .pricing-card.recommended .pricing-card-content {
+            padding: 32px;
+        }
+        
+        @media (min-width: 768px) {
+            .pricing-card.recommended .pricing-card-content {
+                padding: 40px;
+            }
+        }
+        
+        .pricing-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-subtitle {
+            color: #999;
+            font-family: monospace;
+            font-size: 0.625rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 32px;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .pricing-card.recommended .pricing-price {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .pricing-unit {
+            color: #999;
+            font-size: 0.875rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 0.875rem;
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--color-brick-pompeian);
+            color: var(--color-white);
+            font-size: 0.625rem;
+            font-weight: 700;
+            padding: 8px 40px;
+            transform: rotate(45deg) translateX(32px) translateY(16px);
+            box-shadow: var(--shadow-md);
+            letter-spacing: -0.025em;
+        }
+        
+        .pricing-card.recommended .pricing-badge {
+            background-color: var(--color-gold);
+            color: var(--color-brick-dark);
+        }
+        
+        .pricing-button {
+            width: 100%;
+            padding: 16px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            border-radius: 9999px;
+            border: none;
+            transition: var(--transition);
+        }
+        
+        .pricing-card .pricing-button {
+            background-color: var(--color-white);
+            color: var(--color-white);
+            border: 2px solid var(--color-dark);
+        }
+        
+        .pricing-card.popular .pricing-button {
+            background-color: var(--color-brick-pompeian);
+            color: var(--color-white);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .pricing-card.recommended .pricing-button {
+            background-color: var(--color-white);
+            color: var(--color-brick-pompeian);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* Sección Contact */
+        .contact {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/s1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .contact-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 26, 26, 0.9), rgba(129, 19, 22, 0.85), rgba(161, 51, 51, 0.8));
+        }
+        
+        .contact-form {
+            background-color: var(--color-white);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        @media (min-width: 768px) {
+            .contact-form {
+                padding: 64px;
+            }
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #666;
+            letter-spacing: 0.1em;
+        }
+        
+        .form-input {
+            width: 100%;
+            background-color: #f9fafb;
+            border-bottom: 2px solid #f3f4f6;
+            padding: 16px;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .form-input:focus {
+            border-color: var(--color-brick-pompeian);
+        }
+        
+        .guest-input {
+            position: relative;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--color-gold);
+            color: var(--color-brick-dark);
+            font-size: 0.625rem;
+            padding: 4px 12px;
+            font-weight: 700;
+            border-radius: 4px;
+            letter-spacing: -0.025em;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-checkbox {
+            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--color-brick-pompeian);
+            cursor: pointer;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 24px;
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            font-size: 0.875rem;
+            border: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .form-submit:hover {
+            background-color: var(--color-brick-pompeian);
+        }
+        
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: var(--color-brick-pompeian);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: 80px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .footer-brand h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.05em;
+        }
+        
+        .footer-brand p {
+            color: #999;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            border-color: var(--color-gold);
+            color: var(--color-gold);
+        }
+        
+        .footer-column h4 {
+            color: var(--color-gold);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 32px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 16px;
+            font-size: 0.875rem;
+            color: #999;
+            font-weight: 300;
+            transition: var(--transition);
+        }
+        
+        .footer-link:hover {
+            color: var(--color-white);
+        }
+        
+        .footer-link-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+            }
+        }
+        
+        .footer-legal {
+            font-size: 0.625rem;
+            color: #666;
+            letter-spacing: 0.1em;
+        }
+        
+        .footer-links-bottom {
+            display: flex;
+            gap: 32px;
+            font-size: 0.625rem;
+            color: #666;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Responsive */
+        @media (max-width: 767px) {
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+            
+            .text-6xl {
+                font-size: 3rem;
+            }
+            
+            .text-8xl {
+                font-size: 4rem;
+            }
+            
+            section {
+                padding: 64px 0;
+            }
+            
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 1023px) {
+            .flex-col-mobile {
+                flex-direction: column;
+            }
+            
+            .gap-mobile {
+                gap: 48px;
+            }
+        }
+        
+        /* Grid responsive */
+        .grid {
+            display: grid;
+        }
+        
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .md\:grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .lg\:flex-row {
+                flex-direction: row;
+            }
+            
+            .lg\:w-1\/2 {
+                width: 50%;
+            }
+            
+            .lg\:w-5\/12 {
+                width: 41.666667%;
+            }
+            
+            .lg\:w-7\/12 {
+                width: 58.333333%;
+            }
+        }
+        
+        .gap-8 {
+            gap: 32px;
+        }
+        
+        .gap-16 {
+            gap: 64px;
+        }
+        
+        .mb-4 {
+            margin-bottom: 16px;
+        }
+        
+        .mb-6 {
+            margin-bottom: 24px;
+        }
+        
+        .mb-8 {
+            margin-bottom: 32px;
+        }
+        
+        .mb-10 {
+            margin-bottom: 40px;
+        }
+        
+        .mb-12 {
+            margin-bottom: 48px;
+        }
+        
+        .mb-16 {
+            margin-bottom: 64px;
+        }
+        
+        .mb-20 {
+            margin-bottom: 80px;
+        }
+        
+        .mt-4 {
+            margin-top: 16px;
+        }
+        
+        .mt-8 {
+            margin-top: 32px;
+        }
+        
+        .mt-16 {
+            margin-top: 64px;
+        }
+        
+        .p-6 {
+            padding: 24px;
+        }
+        
+        .p-8 {
+            padding: 32px;
+        }
+        
+        .p-10 {
+            padding: 40px;
+        }
+        
+        .px-6 {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+        
+        .py-4 {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+        
+        .py-8 {
+            padding-top: 32px;
+            padding-bottom: 32px;
+        }
+        
+        .py-10 {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        
+        .py-16 {
+            padding-top: 64px;
+            padding-bottom: 64px;
+        }
+        
+        .py-20 {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        
+        .py-24 {
+            padding-top: 96px;
+            padding-bottom: 96px;
+        }
+        
+        .py-28 {
+            padding-top: 112px;
+            padding-bottom: 112px;
+        }
+        
+        .space-y-4 > * + * {
+            margin-top: 16px;
+        }
+        
+        .space-y-8 > * + * {
+            margin-top: 32px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <nav class="container flex justify-between items-center">
+            <div class="nav-logo font-serif font-bold tracking-tighter">
+                CITI<span class="text-gold">ETERNAL</span>TOURS
+            </div>
+            <div class="nav-links">
+                <a href="#tours" class="nav-link hover:text-gold">Tours</a>
+                <a href="#Mysteries" class="nav-link hover:text-gold">Mysteries</a>
+                <a href="#plans" class="nav-link hover:text-gold">Our plans</a>
+            </div>
+            <button class="btn-book">Book Now</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero relative">
+        <div id="hero-bg" class="hero-bg" style="background-image: url('/hero.png');"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container relative z-10 flex justify-end">
+            <div class="hero-content">
+                <h1 class="text-5xl md:text-8xl font-serif font-bold mb-6 leading-tight">
+                    <span class="text-gold">Experience Rome Like an Emperor,</span>
+                    <br>Not a Tourist.
+                </h1>
+                <p class="text-xl mb-10 italic">
+                    At CITIETERNALTOURS.SA, we are not guides, we are the storytellers of your best memories. Discover the secrets that the Eternal City only reveals to those who know how to look.
+                </p>
+            </div>
+        </div>
+
+        <div class="scroll-indicator animate-bounce opacity-50">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours" class="tours">
+        <div class="container px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2">
+                    <div class="collage-container relative">
+                        <img src="/collage.webp" alt="Rome's iconic landmarks" class="collage">
+                        <div class="collage-overlay"></div>
+                    </div>
+                    
+                    <div class="places-grid">
+                        <div class="place-item text-brick">Colosseum</div>
+                        <div class="place-item text-brick">Trevi</div>
+                        <div class="place-item text-brick">Vatican</div>
+                        <div class="place-item text-brick">Borghese</div>
+                        <div class="place-item text-brick">Pantheon</div>
+                        <div class="place-item text-brick">And more...</div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2">
+                    <h4 class="section-title text-brick font-serif uppercase">
+                        The Journey Begins
+                    </h4>
+                    <h2 class="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">
+                        Rome <span class="text-gold">Without</span> <br>the Crowd.
+                    </h2>
+                    
+                    <p class="text-xl mb-10 leading-relaxed font-light">
+                        Imagine standing where emperors once ruled, touching stones that have witnessed 
+                        <span class="text-brick font-medium italic"> 2,000 years of history</span>, and feeling the echo of ancient cheers in the Colosseum's shadows.
+                    </p>
+                    
+                    <div class="mb-12 space-y-8">
+                        <div class="feature-item group cursor-pointer">
+                            <div class="feature-icon text-gold">✦</div>
+                            <div>
+                                <h3 class="feature-title font-serif">Whispers from the Past</h3>
+                                <p class="leading-relaxed">
+                                    What if the Trevi Fountain could tell you the secrets of every wish ever made? 
+                                    What stories do its waters hold beneath the marble?
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item group cursor-pointer">
+                            <div class="feature-icon text-gold">✦</div>
+                            <div>
+                                <h3 class="feature-title font-serif">Divine Encounters</h3>
+                                <p class="leading-relaxed">
+                                    Can you feel Michelangelo's presence in the Sistine Chapel? 
+                                    We take you back to the very moment his brush touched the ceiling.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-card mb-10">
+                        <p class="text-lg">
+                            "Rome is not like any other city. It's a great museum, a living room to tiptoe through." 
+                            <span class="quote-author text-brick">— Alberto Sordi</span>
+                        </p>
+                    </div>
+                    
+                    <div class="cta-buttons">
+                        <button class="btn-primary">
+                            Unlock These Mysteries
+                        </button>
+                        <button class="btn-secondary">
+                            Customize Journey
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secrets Section -->
+    <section id="secrets" class="secrets">
+        <div class="secrets-bg" style="background-image: url('/secrets.png');"></div>
+        <div class="secrets-overlay"></div>
+
+        <div class="container relative z-10 px-6">
+            <div class="text-center mb-16">
+                <h4 class="section-title text-gold font-serif uppercase">
+                    Curated Secrets
+                </h4>
+                <h2 id="Mysteries" class="text-4xl md:text-5xl font-serif font-bold text-white">
+                    Rome's <span class="text-gold">Untold</span> Chapters
+                </h2>
+                <p class="mt-4 max-w-2xl mx-auto font-light">
+                    Beyond the crowds lie the stories that truly define the Eternal City. 
+                    Which mystery will you uncover first?
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://michelangelobuonarrotietornato.com/wp-content/uploads/2019/12/00002.jpg" alt="The Knights of Malta Keyhole">
+                        <div class="card-overlay"></div>
+                        <span class="card-label">The Sovereign View</span>
+                    </div>
+                    <h3 class="card-title">Il Buco della Serratura</h3>
+                    <p class="card-description">
+                        A simple green door on Aventine Hill holds a secret: look through the keyhole to see three sovereign nations perfectly aligned in a single glance.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://www.visitrome.info//Cms_Data/Contents/touristation_en/Folders/Tours/~contents/2DZJ3MSCR2995RZU/fca968304e77b4c7492ea2eee72505f6.jpg" alt="Capuchin Crypt Rome">
+                        <div class="card-overlay"></div>
+                        <span class="card-label">Memento Mori</span>
+                    </div>
+                    <h3 class="card-title">Capuchin Crypt</h3>
+                    <p class="card-description">
+                        An evocative encounter with the friars of the past. Chapels decorated with the bones of 4,000 monks—a hauntingly beautiful lesson in history and faith.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://www.shutterstock.com/shutterstock/photos/2181960685/display_1500/stock-photo-spectacular-view-to-the-magical-pincio-water-clock-in-rome-with-blue-sky-and-trees-in-park-in-2181960685.jpg" alt="Pincio Water Clock">
+                        <div class="card-overlay"></div>
+                        <span class="card-label">Hydraulic Alchemy</span>
+                    </div>
+                    <h3 class="card-title">Pincio Water Clock</h3>
+                    <p class="card-description">
+                        Hidden in the heart of Villa Borghese, this 19th-century engineering marvel tells time using only the steady, rhythmic flow of water.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://www.turismoroma.it/sites/default/files/Vista%20dal%20Gianicolo.jpg" alt="Gianicolo Hill View">
+                        <div class="card-overlay"></div>
+                        <span class="card-label">The Epic Noon</span>
+                    </div>
+                    <h3 class="card-title">Belvedere del Gianicolo</h3>
+                    <p class="card-description">
+                        The most cinematic balcony in Rome. Every day at noon, a cannon fire echoes across the valley, marking time above the city's golden rooftops.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <button class="btn-link">
+                    Discover the full itinerary
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section id="trust" class="trust">
+        <div class="container px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-5/12">
+                    <h4 class="section-title text-brick-pompeian font-serif uppercase font-bold">
+                        Business Excellence
+                    </h4>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">
+                        A Legacy of <br>
+                        <span class="text-brick-pompeian">Trust & Logic.</span>
+                    </h2>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="factor-item" data-factor="0">
+                            <div class="factor-header">
+                                <div class="flex items-center gap-4">
+                                    <span class="factor-number text-gray">01</span>
+                                    <p class="factor-title text-gray-500">
+                                        Efficient Resource Allocation
+                                    </p>
+                                </div>
+                                <span class="text-xl">+</span>
+                            </div>
+                            
+                            <div class="factor-content">
+                                <p class="text-sm leading-relaxed border-t border-gray-100 pt-4">
+                                    Time is your scarcest resource. Our logistics team optimizes tour routes and entry timings to minimize 'dead time' (queues), maximizing your cultural utility per hour.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="factor-item" data-factor="1">
+                            <div class="factor-header">
+                                <div class="flex items-center gap-4">
+                                    <span class="factor-number text-gray">02</span>
+                                    <p class="factor-title text-gray-500">
+                                        Certified Human Capital
+                                    </p>
+                                </div>
+                                <span class="text-xl">+</span>
+                            </div>
+                            
+                            <div class="factor-content">
+                                <p class="text-sm leading-relaxed border-t border-gray-100 pt-4">
+                                    Our guides are not just labor; they are high-value intellectual assets. Each one is a certified historian specialized in Roman heritage, ensuring accurate information transfer.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="factor-item" data-factor="2">
+                            <div class="factor-header">
+                                <div class="flex items-center gap-4">
+                                    <span class="factor-number text-gray">03</span>
+                                    <p class="factor-title text-gray-500">
+                                        Economic Equilibrium
+                                    </p>
+                                </div>
+                                <span class="text-xl">+</span>
+                            </div>
+                            
+                            <div class="factor-content">
+                                <p class="text-sm leading-relaxed border-t border-gray-100 pt-4">
+                                    We maintain a strict price-value balance. Every Euro of revenue is reinvested into heritage preservation and skip-the-line privileges, ensuring service sustainability.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-xs italic text-gray-500">
+                        * Applying technical standards of management to cultural heritage.
+                    </p>
+                </div>
+
+                <div class="w-full lg:w-7/12 relative group">
+                    <div id="testimonial-container" class="testimonial-container">
+                        <div class="testimonial-quote">”</div>
+
+                        <div id="testimonial-content" class="relative z-10 animate-fadeIn">
+                            <div class="testimonial-stars">
+                                ★★★★★
+                            </div>
+                            
+                            <blockquote id="testimonial-text" class="testimonial-text">
+                                "The organization was flawless. We saw the Vatican Museums without the stress of the crowds. Worth every Euro for the peace of mind."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <img id="testimonial-avatar" class="testimonial-avatar" src="https://i.pravatar.cc/150?u=sarah" alt="Client">
+                                <div>
+                                    <p id="testimonial-author" class="testimonial-author-name">Sarah Jenkins</p>
+                                    <p id="testimonial-tour" class="testimonial-tour">Premium Vatican Tour</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-progress">
+                            <div id="testimonial-progress-bar" class="testimonial-progress-bar" style="width: 33.33%"></div>
+                        </div>
+
+                        <div class="testimonial-next animate-pulse">
+                            Next Review →
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container px-6">
+            <div class="text-center mb-20">
+                <h4 class="section-title text-brick-pompeian font-serif uppercase font-bold">
+                    Investment in Memories
+                </h4>
+                <h2 id="plans" class="text-4xl md:text-6xl font-serif font-bold italic">
+                    Forge Your <span class="text-brick-pompeian">Legend</span>
+                </h2>
+                <p class="mt-6 max-w-2xl mx-auto font-light leading-relaxed">
+                    From foundational history to total cultural immersion. All plans include our <b>"Eternal Satisfaction Guarantee"</b>: If the storytelling doesn't move you, we reinvest your investment.
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-card-content">
+                        <h3>The Tribune's Path</h3>
+                        <p class="pricing-subtitle">Foundational Heritage</p>
+                        
+                        <div class="pricing-price">
+                            <span>€85</span>
+                            <span class="pricing-unit"> / guest</span>
+                        </div>
+
+                        <ul class="pricing-features">
+                            <li class="pricing-feature">
+                                <span class="text-brick-pompeian">✦</span> 
+                                <span><b>Colosseum & Roman Forum:</b> Expert-led walk through the heart of the Empire.</span>
+                            </li>
+                            <li class="pricing-feature">
+                                <span class="text-brick-pompeian">✦</span> 
+                                <span><b>The Pantheon Secret:</b> Solar alignment and baroque legends tour.</span>
+                            </li>
+                            <li class="pricing-feature">
+                                <span class="text-brick-pompeian">✦</span> 
+                                <span><b>Artisan Gelato:</b> Authentic tasting in a hidden Piazza.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-8 pt-0">
+                        <button class="pricing-button">
+                            Forge This Path
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-card-content">
+                        <h3>Divinity & Shadows</h3>
+                        <p class="pricing-subtitle text-gold font-bold">Comprehensive Experience</p>
+                        
+                        <div class="pricing-price">
+                            <span class="text-brick-pompeian">€165</span>
+                            <span class="pricing-unit"> / guest</span>
+                        </div>
+
+                        <ul class="pricing-features">
+                            <li class="pricing-feature font-bold">
+                                <span class="text-brick-pompeian">✓</span> 
+                                <span>Everything in The Tribune's Path</span>
+                            </li>
+                            <li class="pricing-feature">
+                                <span class="text-gold">✦</span> 
+                                <span><b>Vatican Privileged Access:</b> Sistine Chapel & Raphael Rooms skip-the-line.</span>
+                            </li>
+                            <li class="pricing-feature">
+                                <span class="text-gold">✦</span> 
+                                <span><b>The Secret Keyhole:</b> Sunset experience at the Knights of Malta.</span>
+                            </li>
+                            <li class="pricing-feature">
+                                <span class="text-gold">✦</span> 
+                                <span><b>Professional Portraits:</b> 5 edited digital photos of your group.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-8 pt-0">
+                        <button class="pricing-button">
+                            Book This Odyssey
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pricing-card recommended">
+                    <div class="pricing-badge">Recommended</div>
+                    <div class="pricing-card-content">
+                        <h3 class="text-white">The Eternal Legacy</h3>
+                        <p class="pricing-subtitle text-gold font-bold">Total Strategic Immersion</p>
+                        
+                        <div class="pricing-price text-white">
+                            <span>€225</span>
+                            <span class="pricing-unit text-gray-300"> / guest</span>
+                        </div>
+
+                        <ul class="pricing-features">
+                            <li class="pricing-feature font-bold text-gold">
+                                <span class="text-white">✓</span> 
+                                <span>Everything in Divinity & Shadows</span>
+                            </li>
+                            <li class="pricing-feature">
+                                <span class="text-gold">✦</span> 
+                                <span><b>The Capuchin Crypt:</b> Private tour of the Memento Mori bone chapels.</span>
+                            </li>
+                            <li class="pricing-feature">
+                                <span class="text-gold">✦</span> 
+                                <span><b>The Epic Noon:</b> Gianicolo Cannon fire with premium Aperitivo & Prosecco.</span>
+                            </li>
+                            <li class="pricing-feature italic">
+                                <span class="text-gold">✦</span> 
+                                <span><b>Pro Photo Suite:</b> 20+ professional photos & high-res video reel.</span>
+                            </li>
+                            <li class="pricing-feature font-semibold">
+                                <span class="text-gold">✦</span> 
+                                <span><b>Alchemist Cellar Lunch:</b> 4-course traditional meal in a private 16th-century cave.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-8 pt-0 relative z-10">
+                        <button class="pricing-button">
+                            Invest in Legacy
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-xs font-mono uppercase tracking-widest text-gray-400">
+                    * All plans are managed under the ISO-Heritage cultural standards.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-bg"></div>
+        <div class="contact-overlay"></div>
+
+        <div class="container relative z-10 px-6">
+            <div class="flex flex-col lg:flex-row gap-16 lg:items-start">
+                <div class="w-full lg:w-5/12 text-white pt-10">
+                    <h4 class="section-title text-gold font-serif uppercase font-bold">
+                        The Agency
+                    </h4>
+                    <div class="space-y-8 text-xl font-light leading-relaxed mt-8">
+                        <p>
+                            At <b>CITIETERNALTOURS</b>, we bridge the gap between historical data and human emotion for over 15 years.
+                        </p>
+                        <p>
+                            Our team of <b>certified archaeologists and art historians</b> designs itineraries optimized for your pace, ensuring every minute in Rome is a high-return cultural investment.
+                        </p>
+                    </div>
+
+                    <div class="mt-16 grid grid-cols-1 gap-6 border-l-2 border-gold pl-8">
+                        <div>
+                            <h5 class="text-gold font-bold text-sm uppercase tracking-widest">Certified Human Capital</h5>
+                            <p class="text-gray-300 text-sm">Official guides with Master's degrees in Heritage Management.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-gold font-bold text-sm uppercase tracking-widest">Logistic Efficiency</h5>
+                            <p class="text-gray-300 text-sm">Real-time flow management for absolute Skip-the-line entry.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-7/12 contact-form">
+                    <div class="mb-12">
+                        <h3 class="font-serif text-4xl font-bold mb-4">Plan Your Odyssey</h3>
+                        <p class="text-sm uppercase tracking-widest font-medium border-b border-gray-100 pb-6 text-gray-400">
+                            Request a personalized cultural assessment
+                        </p>
+                    </div>
+                    
+                    <form id="contact-form" class="space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" placeholder="e.g. Marcus Aurelius" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" placeholder="email@example.com" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" placeholder="+1 234 567 890" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Group Size</label>
+                                <div class="guest-input">
+                                    <input id="guest-count" type="number" min="1" value="1" class="form-input font-bold text-brick-pompeian" required>
+                                    <div id="discount-badge" class="discount-badge" style="display: none;">
+                                        Volume Discount Applied
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Desired Odyssey</label>
+                            <select class="form-input cursor-pointer">
+                                <option>Select your investment level...</option>
+                                <option>The Tribune's Path (Foundational)</option>
+                                <option>Divinity & Shadows (Most Popular)</option>
+                                <option>The Eternal Legacy (Complete Immersion)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Special Requests</label>
+                            <textarea rows="4" placeholder="Dates, accessibility needs, or specific interests..." class="form-input form-textarea"></textarea>
+                        </div>
+
+                        <div class="flex items-start gap-4 py-4">
+                            <input type="checkbox" required class="form-checkbox">
+                            <span class="text-sm text-gray-500 leading-snug">
+                                I accept the <b>privacy policy</b> and the processing of my personal data to receive a customized cultural proposal. *
+                            </span>
+                        </div>
+
+                        <button type="submit" class="form-submit">
+                            Begin My Roman Legacy
+                        </button>
+                    </form>
+
+                    <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+                        <a href="https://wa.me/393887946306" target="_blank" class="whatsapp-link group">
+                            <span class="text-3xl transition-transform group-hover:scale-125">📱</span>
+                            <div class="text-left">
+                                <p class="text-xs uppercase tracking-widest font-bold text-gray-400">Direct Assistance</p>
+                                <p class="text-lg font-bold group-hover:underline">WhatsApp: +39 388 7946306</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container px-6">
+            <div class="footer-grid">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="footer-brand">
+                        CITI<span class="text-gold">ETERNAL</span>TOURS
+                    </h3>
+                    <p>
+                        Strategic management of cultural heritage and high-return storytelling. 
+                        Applying economic equilibrium to the preservation of Rome's eternal legacy.
+                    </p>
+                    <div class="footer-social">
+                        <span class="social-icon">FB</span>
+                        <span class="social-icon">IG</span>
+                        <span class="social-icon">LI</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="footer-link">The Beginning</a></li>
+                        <li><a href="#secrets" class="footer-link">Hidden Realms</a></li>
+                        <li><a href="#trust" class="footer-link">Our Methodology</a></li>
+                        <li><a href="#pricing" class="footer-link">Investment Plans</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Official Resources</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item">
+                            <span>🏛️</span>
+                            <a href="https://www.museivaticani.va" target="_blank" rel="noreferrer" class="footer-link">
+                                Musei Vaticani Official
+                            </a>
+                        </li>
+                        <li class="footer-link-item">
+                            <span>🎟️</span>
+                            <a href="https://tickets.museivaticani.va" target="_blank" rel="noreferrer" class="footer-link">
+                                Vatican Ticket Office
+                            </a>
+                        </li>
+                        <li class="footer-link-item">
+                            <span>🇻🇦</span>
+                            <a href="http://www.vatican.va" target="_blank" rel="noreferrer" class="footer-link">
+                                The Holy See
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Headquarters</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item">
+                            <span class="text-gold">📍</span>
+                            <span>Via della Conciliazione, Rome, Italy</span>
+                        </li>
+                        <li class="footer-link-item">
+                            <span class="text-gold">📞</span>
+                            <span>+39 388 7946306</span>
+                        </li>
+                        <li class="footer-link-item">
+                            <span class="text-gold">✉️</span>
+                            <span>concierge@citieternaltours.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-legal">
+                    © 2024 CITIETERNALTOURS S.P.A. - All Rights Reserved. 
+                    <span class="mx-2">|</span> 
+                    Equilibrio Economico & Cultural Sustainability
+                </p>
+                <div class="footer-links-bottom">
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold">Terms of Service</a>
+                    <a href="#" class="hover:text-gold">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Variables globales
+        let scrollY = 0;
+        let currentTestimonial = 0;
+        let activeFactor = 0;
+        let guests = 1;
+        
+        // Testimonials data
+        const testimonials = [
+            {
+                text: "The organization was flawless. We saw the Vatican Museums without the stress of the crowds. Worth every Euro for the peace of mind.",
+                author: "Sarah Jenkins",
+                tour: "Premium Vatican Tour",
+                img: "https://i.pravatar.cc/150?u=sarah"
+            },
+            {
+                text: "Looking through the Keyhole was a spiritual experience. CITIETERNAL knows the exact time to go to avoid the lines. True storytellers.",
+                author: "Luca Moretti",
+                tour: "Hidden Gems Private Walk",
+                img: "https://i.pravatar.cc/150?u=luca"
+            },
+            {
+                text: "I've been to Rome 4 times, but this was the first time I actually understood the engineering behind the Colosseum. Exceptional guides.",
+                author: "Michael Herrera",
+                tour: "Imperial Rome & Colosseum",
+                img: "https://i.pravatar.cc/150?u=elena"
+            }
+        ];
+        
+        // Factors data
+        const factors = [
+            {
+                id: 0,
+                title: "Efficient Resource Allocation",
+                desc: "Time is your scarcest resource. Our logistics team optimizes tour routes and entry timings to minimize 'dead time' (queues), maximizing your cultural utility per hour."
+            },
+            {
+                id: 1,
+                title: "Certified Human Capital",
+                desc: "Our guides are not just labor; they are high-value intellectual assets. Each one is a certified historian specialized in Roman heritage, ensuring accurate information transfer."
+            },
+            {
+                id: 2,
+                title: "Economic Equilibrium",
+                desc: "We maintain a strict price-value balance. Every Euro of revenue is reinvested into heritage preservation and skip-the-line privileges, ensuring service sustainability."
+            }
+        ];
+        
+        // Inicialización cuando el DOM está listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar efecto parallax
+            const heroBg = document.getElementById('hero-bg');
+            
+            // Manejar scroll para efecto parallax
+            window.addEventListener('scroll', function() {
+                scrollY = window.scrollY;
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
+                }
+            });
+            
+            // Inicializar testimonios
+            initTestimonials();
+            
+            // Inicializar factores de confianza
+            initTrustFactors();
+            
+            // Inicializar contador de invitados
+            initGuestCounter();
+            
+            // Inicializar navegación suave
+            initSmoothScroll();
+            
+            // Inicializar formulario de contacto
+            initContactForm();
+            
+            // Configurar navegación móvil (si se implementa)
+            initMobileNav();
+        });
+        
+        // Testimonials
+        function initTestimonials() {
+            const testimonialContainer = document.getElementById('testimonial-container');
+            const testimonialText = document.getElementById('testimonial-text');
+            const testimonialAuthor = document.getElementById('testimonial-author');
+            const testimonialTour = document.getElementById('testimonial-tour');
+            const testimonialAvatar = document.getElementById('testimonial-avatar');
+            const progressBar = document.getElementById('testimonial-progress-bar');
+            
+            // Mostrar testimonio actual
+            function showTestimonial(index) {
+                const testimonial = testimonials[index];
+                testimonialText.textContent = `"${testimonial.text}"`;
+                testimonialAuthor.textContent = testimonial.author;
+                testimonialTour.textContent = testimonial.tour;
+                testimonialAvatar.src = testimonial.img;
+                
+                // Actualizar barra de progreso
+                const progress = ((index + 1) / testimonials.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Cambiar al siguiente testimonio
+            function nextTestimonial() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }
+            
+            // Mostrar testimonio inicial
+            showTestimonial(currentTestimonial);
+            
+            // Configurar clic para cambiar testimonio
+            if (testimonialContainer) {
+                testimonialContainer.addEventListener('click', nextTestimonial);
+            }
+            
+            // Cambiar automáticamente cada 5 segundos
+            setInterval(nextTestimonial, 5000);
+        }
+        
+        // Factores de confianza (acordeón)
+        function initTrustFactors() {
+            const factorItems = document.querySelectorAll('.factor-item');
+            
+            factorItems.forEach(item => {
+                const factorId = parseInt(item.getAttribute('data-factor'));
+                const factor = factors[factorId];
+                const header = item.querySelector('.factor-header');
+                const content = item.querySelector('.factor-content');
+                const toggleIcon = header.querySelector('span:last-child');
+                
+                // Configurar clic para expandir/colapsar
+                item.addEventListener('click', function() {
+                    // Si ya está activo, colapsar
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        content.style.maxHeight = '0';
+                        content.style.opacity = '0';
+                        toggleIcon.textContent = '+';
+                    } else {
+                        // Colapsar todos los demás
+                        factorItems.forEach(otherItem => {
+                            otherItem.classList.remove('active');
+                            const otherContent = otherItem.querySelector('.factor-content');
+                            const otherToggleIcon = otherItem.querySelector('.factor-header span:last-child');
+                            otherContent.style.maxHeight = '0';
+                            otherContent.style.opacity = '0';
+                            otherToggleIcon.textContent = '+';
+                        });
+                        
+                        // Expandir este
+                        item.classList.add('active');
+                        content.style.maxHeight = '160px';
+                        content.style.opacity = '1';
+                        toggleIcon.textContent = '−';
+                    }
+                });
+            });
+            
+            // Expandir el primer factor por defecto
+            if (factorItems.length > 0) {
+                const firstItem = factorItems[0];
+                const firstContent = firstItem.querySelector('.factor-content');
+                const firstToggleIcon = firstItem.querySelector('.factor-header span:last-child');
+                
+                firstItem.classList.add('active');
+                firstContent.style.maxHeight = '160px';
+                firstContent.style.opacity = '1';
+                firstToggleIcon.textContent = '−';
+            }
+        }
+        
+        // Contador de invitados
+        function initGuestCounter() {
+            const guestInput = document.getElementById('guest-count');
+            const discountBadge = document.getElementById('discount-badge');
+            
+            if (guestInput && discountBadge) {
+                guestInput.addEventListener('input', function() {
+                    guests = parseInt(this.value) || 1;
+                    
+                    // Mostrar badge de descuento si hay más de 3 invitados
+                    if (guests > 3) {
+                        discountBadge.style.display = 'block';
+                    } else {
+                        discountBadge.style.display = 'none';
+                    }
+                });
+            }
+        }
+        
+        // Navegación suave
+        function initSmoothScroll() {
+            // Seleccionar todos los enlaces con hash
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Solo manejar enlaces internos
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Desplazamiento suave
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Ajustar para header fijo
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Formulario de contacto
+        function initContactForm() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validación básica
+                    const nameInput = this.querySelector('input[type="text"]');
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    
+                    if (!nameInput.value.trim()) {
+                        alert('Please enter your name');
+                        nameInput.focus();
+                        return;
+                    }
+                    
+                    if (!emailInput.value.trim()) {
+                        alert('Please enter your email address');
+                        emailInput.focus();
+                        return;
+                    }
+                    
+                    if (!checkbox.checked) {
+                        alert('Please accept the privacy policy');
+                        return;
+                    }
+                    
+                    // Simular envío
+                    alert('Thank you for your request! We will contact you soon to plan your Roman odyssey.');
+                    
+                    // Resetear formulario (opcional)
+                    // this.reset();
+                });
+            }
+        }
+        
+        // Navegación móvil (simplificada)
+        function initMobileNav() {
+            // Aquí se podría agregar un menú hamburguesa para móviles
+            // Por ahora, solo configuramos los enlaces de navegación
+            const navLinks = document.querySelectorAll('.nav-link, .btn-book');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Para móviles, podríamos cerrar un menú desplegable aquí
+                    console.log('Navigation link clicked:', this.textContent);
+                });
+            });
+        }
+        
+        // Efecto hover en tarjetas de secretos
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Efecto hover en botones
+        document.querySelectorAll('.btn-primary, .btn-secondary, .pricing-button, .form-submit').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
